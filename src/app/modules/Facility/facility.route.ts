@@ -13,11 +13,7 @@ router.post(
   validateRequest(FacilityValidation.createFacilitySchema),
   FacilityControllers.createFacility
 );
-router.get(
-  "/",
-  AuthValidation(USER_ROLE.admin),
-  FacilityControllers.getAllFacility
-);
+router.get("/", FacilityControllers.getAllFacility);
 router.put(
   "/:id",
   AuthValidation(USER_ROLE.admin),

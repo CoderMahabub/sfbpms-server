@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import mongoose from "mongoose";
 import { TFacility } from "./facility.interface";
 import { Facility } from "./facility.model";

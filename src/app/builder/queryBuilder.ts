@@ -9,7 +9,6 @@ class QueryBuilder<T> {
     this.query = query;
   }
 
-  //Search
   search(searchableFields: string[]) {
     const searchTerm = this?.query?.searchTerm;
     if (searchTerm) {
@@ -25,10 +24,11 @@ class QueryBuilder<T> {
     return this;
   }
 
-  //filter
   filter() {
     const queryObj = { ...this.query }; //copy
+    // filtering
     const excludeFields = ["searchTerm", "sort", "limit", "page", "fields"];
+
     excludeFields.forEach((el) => delete queryObj[el]);
 
     this.modelQuery = this.modelQuery.find(queryObj as FilterQuery<T>);
@@ -36,7 +36,6 @@ class QueryBuilder<T> {
     return this;
   }
 
-  //sor()
   sort() {
     const sort =
       (this?.query?.sort as string)?.split(",")?.join(" ") || "-createdAt";
@@ -46,7 +45,7 @@ class QueryBuilder<T> {
 
   paginate() {
     const page = Number(this?.query?.page) || 1;
-    const limit = Number(this?.query?.limit) || 1;
+    const limit = Number(this?.query?.limit) || 10;
     const skip = (page - 1) * limit;
 
     this.modelQuery = this.modelQuery.skip(skip).limit(limit);
