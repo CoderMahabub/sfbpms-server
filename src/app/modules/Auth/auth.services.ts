@@ -1,11 +1,11 @@
-import httpStatus from "http-status";
-import config from "../../config";
-import AppError from "../../errors/AppError";
-import { User } from "../User/user.model";
-import { TLoginUser } from "./auth.interface";
-import { createToken } from "./auth.utils";
 import mongoose from "mongoose";
 import { TUser } from "../User/user.Interface";
+import { User } from "../User/user.model";
+import { TLoginUser } from "./auth.interface";
+import AppError from "../../errors/AppError";
+import httpStatus from "http-status";
+import config from "../../config";
+import { createToken } from "./auth.utils";
 
 const signupService = async (payload: TUser): Promise<any> => {
   //user existence check
@@ -65,8 +65,8 @@ const loginService = async (payload: TLoginUser) => {
   // create refresh token and send client
   const refreshToken = createToken(
     jwtPayload,
-    config.jwt_access_secret as string,
-    config.jwt_access_refresh_in as string
+    config.jwt_refresh_secret as string,
+    config.jwt_refresh_expires_in as string
   );
 
   return {

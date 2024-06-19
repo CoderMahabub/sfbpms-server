@@ -19,3 +19,5 @@ export interface UserModel extends Model<TUser> {
     hashedPassword: string
   ): Promise<boolean>;
 }
+
+export type TUserRole = keyof typeof USER_ROLE;

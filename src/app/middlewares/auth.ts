@@ -1,14 +1,13 @@
-import { NextFunction, Request, Response } from "express";
-import config from "../config";
-import { USER_ROLE } from "../modules/User/user.constant";
-import { User } from "../modules/User/user.model";
-import catchAsync from "../utils/catchAsync";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { AuthError } from "../errors/AuthError";
 
-export const AuthValidation = (
-  ...requiredRoles: (keyof typeof USER_ROLE)[]
-) => {
+import catchAsync from "../utils/catchAsync";
+import config from "../config";
+import { User } from "../modules/User/user.model";
+import { NextFunction, Request, Response } from "express";
+import { AuthError } from "../errors/AuthError";
+import { TUserRole } from "../modules/User/user.Interface";
+
+export const AuthValidation = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const authHeader = req.headers.authorization;
 
