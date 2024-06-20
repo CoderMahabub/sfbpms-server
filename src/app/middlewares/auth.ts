@@ -21,7 +21,6 @@ export const AuthValidation = (...requiredRoles: TUserRole[]) => {
     );
 
     const { role, email, userId } = verifiedToken as JwtPayload;
-    console.log("userId", userId, "role", role, "email", email);
 
     const userExist = await User.isUserExistsByEmail(email);
 

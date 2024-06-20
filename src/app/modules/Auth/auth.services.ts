@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import mongoose from "mongoose";
 import { TUser } from "../User/user.Interface";
 import { User } from "../User/user.model";
@@ -24,7 +25,7 @@ const signupService = async (payload: TUser): Promise<any> => {
     session.startTransaction();
     //create user
     const newUser = await User.create([payload], { session });
-    console.log("newUser", newUser);
+    // console.log("newUser", newUser);
     await session.commitTransaction();
     await session.endSession();
     return newUser[0];

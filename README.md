@@ -97,6 +97,6 @@ npm run start:dev
 2. POST /api/bookings -> (Create a new booking(user Only))
 3. GET /api/bookings -> (View all bookings (Admin Only))
 4. GET /api/bookings/user -> (View bookings by user (User Only))
-5. DELETE /api/bookings/:id -> (Cancel a booking (User Only
+5. DELETE /api/bookings/:id -> (Cancel a booking (User Only)
 
 ### Project overview Video Link:
