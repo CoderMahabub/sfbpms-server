@@ -30,6 +30,13 @@ In this project I have used Zod validation to ensure data consistency and preven
 2. Route Not Found,
 3. Validate by user role
 
+## Credentials
+
+1. ADMIN: Email- admin@codermahabub.com
+        Password- Admin222111
+
+2. USER: Email- user@codermahabub.com
+        Password- User222111
 
 ## Installation
 
@@ -86,14 +93,10 @@ npm run start:dev
 
 ### UserOnly Only
 
-1. POST /api/facility -> (Add a new facility)
-2. PUT /api/facility/:id -> (Update an existing facility)
-3. DELETE /api/facility/:id -> (Soft delete a facility)
-4. GET /api/facility -> (Retrieve all facilities)
+1. GET /api/check-availability -> (Check availability of time slots for booking)
+2. POST /api/bookings -> (Create a new booking(user Only))
+3. GET /api/bookings -> (View all bookings (Admin Only))
+4. GET /api/bookings/user -> (View bookings by user (User Only))
+5. DELETE /api/bookings/:id -> (Cancel a booking (User Only
 
-
-
-
-
-admin: admin@codermahabub.com password: Admin222111
-user:habiba@codermahabub.com password: Habiba222111
+### Project overview Video Link:
