@@ -99,4 +99,4 @@ npm run start:dev
 4. GET /api/bookings/user -> (View bookings by user (User Only))
 5. DELETE /api/bookings/:id -> (Cancel a booking (User Only)
 
-### Project overview Video Link:
+### Project overview Video Link: https://drive.google.com/file/d/1VmvmamIQImsJ5XWKnBY3yR8cL76AUWoN/view
