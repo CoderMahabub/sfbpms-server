@@ -1,11 +1,11 @@
-import { Response } from "express";
-import jwt from "jsonwebtoken";
-import { Types } from "mongoose";
+import { Response } from 'express';
+import jwt from 'jsonwebtoken';
+import { Types } from 'mongoose';
 
 export const createToken = (
   jwtPayload: { email: string; role: string; userId: Types.ObjectId },
   secret: string,
-  expiresIn: string
+  expiresIn: string,
 ) => {
   return jwt.sign(jwtPayload, secret, {
     expiresIn,
@@ -22,7 +22,7 @@ type TLoginResponse<T> = {
 
 export const sendLoginResponse = <T>(
   res: Response,
-  data: TLoginResponse<T>
+  data: TLoginResponse<T>,
 ) => {
   res.status(data.statusCode).json({
     success: data.success,

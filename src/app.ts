@@ -1,22 +1,19 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import express, { Request, Response } from "express";
+import express, { Request, Response } from 'express';
 const app = express();
-import cors from "cors";
-import globalErrorHandler from "./app/middlewares/globalErrorHandler";
-import notFound from "./app/middlewares/notfound";
-import router from "./app/routes/indext";
+import cors from 'cors';
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
+import notFound from './app/middlewares/notfound';
+import router from './app/routes';
 
 //parsers
 app.use(express.json());
-app.use(cors());
-app.use(cors({ origin: ["http://localhost:5173"] }));
+app.use(cors({ origin: ['http://localhost:5173'] }));
 // // application routes
-app.use("/api", router);
+app.use('/api', router);
 
-const test = async (req: Request, res: Response) => {
-  Promise.reject();
-};
-app.get("/", test);
+app.get('/', (req: Request, res: Response) => {
+  res.send('server is running.');
+});
 
 app.use(globalErrorHandler);
 

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
-import { Schema, model } from "mongoose";
-import { TUser, UserModel } from "./user.Interface";
-import { USER_ROLE } from "./user.constant";
-import config from "../../config";
-import bcrypt from "bcrypt";
+import { Schema, model } from 'mongoose';
+import { TUser, UserModel } from './user.Interface';
+import { USER_ROLE } from './user.constant';
+import config from '../../config';
+import bcrypt from 'bcrypt';
 
 const userSchema = new Schema<TUser>({
   name: {
@@ -17,14 +17,14 @@ const userSchema = new Schema<TUser>({
   },
   password: {
     type: String,
-    required: [true, "Password Must be at least 8 Characters"],
+    required: [true, 'Password Must be at least 8 Characters'],
   },
   phone: {
     type: String,
   },
   role: {
     type: String,
-    required: [true, "Role is required"],
+    required: [true, 'Role is required'],
     enum: Object.keys(USER_ROLE),
   },
   address: {
@@ -32,18 +32,18 @@ const userSchema = new Schema<TUser>({
   },
 });
 
-userSchema.pre("save", async function (next) {
+userSchema.pre('save', async function (next) {
   const user = this;
 
   user.password = await bcrypt.hash(
     user.password,
-    Number(config.bcrypt_salt_rounds)
+    Number(config.bcrypt_salt_rounds),
   );
 
   next();
 });
-userSchema.post("save", function (doc, next) {
-  doc.password = "";
+userSchema.post('save', function (doc, next) {
+  doc.password = '';
 
   next();
 });
@@ -62,8 +62,8 @@ userSchema.statics.isUserExistsByNumber = async function (phone: string) {
 
 userSchema.statics.isPasswordMatched = async function (
   plainTextPassword: string,
-  hashedPassword: string
+  hashedPassword: string,
 ) {
   return await bcrypt.compare(plainTextPassword, hashedPassword);
 };
-export const User = model<TUser, UserModel>("User", userSchema);
+export const User = model<TUser, UserModel>('User', userSchema);

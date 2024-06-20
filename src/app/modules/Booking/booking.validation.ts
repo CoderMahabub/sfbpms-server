@@ -1,9 +1,9 @@
-import { z } from "zod";
-import { BOOKING_STATUS } from "./booking.constant";
+import { z } from 'zod';
+import { BOOKING_STATUS } from './booking.constant';
 
 const timeStringSchema = z
   .string()
-  .regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Invalid time format. Must be HH:MM");
+  .regex(/^([01]\d|2[0-3]):([0-5]\d)$/, 'Invalid time format. Must be HH:MM');
 
 export const createBookingSchema = z.object({
   body: z
@@ -20,8 +20,8 @@ export const createBookingSchema = z.object({
           return !isNaN(date.getTime());
         },
         {
-          message: "Invalid date format. Must be YYYY-MM-DD",
-        }
+          message: 'Invalid date format. Must be YYYY-MM-DD',
+        },
       ),
       startTime: timeStringSchema,
       endTime: timeStringSchema,
@@ -29,10 +29,10 @@ export const createBookingSchema = z.object({
       facility: z.string(),
       payableAmount: z
         .number()
-        .min(0, "Payable amount must be a non-negative number")
+        .min(0, 'Payable amount must be a non-negative number')
         .optional(),
       isBooked: z
-        .nativeEnum(BOOKING_STATUS, { message: "Invalid booking status" })
+        .nativeEnum(BOOKING_STATUS, { message: 'Invalid booking status' })
         .optional(),
     })
     .refine(
@@ -44,7 +44,7 @@ export const createBookingSchema = z.object({
       {
         message:
           'Start time should be before End time. Format must be "HH:MM"!',
-      }
+      },
     ),
 });
 

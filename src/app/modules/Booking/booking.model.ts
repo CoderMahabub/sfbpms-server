@@ -1,30 +1,30 @@
-import { Schema, model } from "mongoose";
-import { BOOKING_STATUS } from "./booking.constant";
-import { TBooking } from "./booking.interface";
+import { Schema, model } from 'mongoose';
+import { BOOKING_STATUS } from './booking.constant';
+import { TBooking } from './booking.interface';
 
 const bookingSchema = new Schema<TBooking>(
   {
     date: {
       type: String,
-      required: [true, "Date is required"],
+      required: [true, 'Date is required'],
     },
     startTime: {
       type: String,
-      required: [true, "Start time is required"],
+      required: [true, 'Start time is required'],
     },
     endTime: {
       type: String,
-      required: [true, "End time is required"],
+      required: [true, 'End time is required'],
     },
     user: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
     facility: {
       type: Schema.Types.ObjectId,
-      ref: "Facility",
-      required: [true, "Facility is required"],
+      ref: 'Facility',
+      required: [true, 'Facility is required'],
     },
     payableAmount: {
       type: Number,
@@ -39,7 +39,7 @@ const bookingSchema = new Schema<TBooking>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-export const Booking = model<TBooking>("Booking", bookingSchema);
+export const Booking = model<TBooking>('Booking', bookingSchema);

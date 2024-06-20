@@ -1,4 +1,4 @@
-import { FilterQuery, Query } from "mongoose";
+import { FilterQuery, Query } from 'mongoose';
 
 class QueryBuilder<T> {
   public modelQuery: Query<T[], T>;
@@ -16,8 +16,8 @@ class QueryBuilder<T> {
         $or: searchableFields.map(
           (field) =>
             ({
-              [field]: { $regex: searchTerm, $options: "i" },
-            } as FilterQuery<T>)
+              [field]: { $regex: searchTerm, $options: 'i' },
+            }) as FilterQuery<T>,
         ),
       });
     }
@@ -27,7 +27,7 @@ class QueryBuilder<T> {
   filter() {
     const queryObj = { ...this.query }; //copy
     // filtering
-    const excludeFields = ["searchTerm", "sort", "limit", "page", "fields"];
+    const excludeFields = ['searchTerm', 'sort', 'limit', 'page', 'fields'];
 
     excludeFields.forEach((el) => delete queryObj[el]);
 
@@ -38,7 +38,7 @@ class QueryBuilder<T> {
 
   sort() {
     const sort =
-      (this?.query?.sort as string)?.split(",")?.join(" ") || "-createdAt";
+      (this?.query?.sort as string)?.split(',')?.join(' ') || '-createdAt';
     this.modelQuery = this.modelQuery.sort(sort as string);
     return this;
   }
@@ -54,7 +54,7 @@ class QueryBuilder<T> {
 
   fields() {
     const fields =
-      (this?.query?.fields as string)?.split(",")?.join(" ") || "-__v";
+      (this?.query?.fields as string)?.split(',')?.join(' ') || '-__v';
 
     this.modelQuery = this.modelQuery.select(fields);
     return this;

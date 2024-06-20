@@ -1,5 +1,5 @@
-import { Model } from "mongoose";
-import { USER_ROLE } from "./user.constant";
+import { Model } from 'mongoose';
+import { USER_ROLE } from './user.constant';
 
 export type TUser = {
   name: string;
@@ -16,7 +16,7 @@ export interface UserModel extends Model<TUser> {
   isUserExistsByNumber(num: string): Promise<TUser>;
   isPasswordMatched(
     plainTextPassword: string,
-    hashedPassword: string
+    hashedPassword: string,
   ): Promise<boolean>;
 }
 

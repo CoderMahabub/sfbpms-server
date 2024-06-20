@@ -1,1 +1,1 @@
-export const facilitySearchableFields = ["name", "description", "location"];
+export const facilitySearchableFields = ['name', 'description', 'location'];

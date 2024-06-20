@@ -1,5 +1,5 @@
-import { Types } from "mongoose";
-import { BOOKING_STATUS } from "./booking.constant";
+import { Types } from 'mongoose';
+import { BOOKING_STATUS } from './booking.constant';
 
 export type TBooking = {
   date: string;

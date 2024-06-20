@@ -1,7 +1,7 @@
-import httpStatus from "http-status";
-import catchAsync from "../../utils/catchAsync";
-import sendResponse from "../../utils/sendResponse";
-import { BookingServices } from "./booking.service";
+import httpStatus from 'http-status';
+import catchAsync from '../../utils/catchAsync';
+import sendResponse from '../../utils/sendResponse';
+import { BookingServices } from './booking.service';
 
 const createBooking = catchAsync(async (req, res) => {
   const result = await BookingServices.createBookingService(req.user, req.body);
@@ -10,7 +10,7 @@ const createBooking = catchAsync(async (req, res) => {
     sendResponse(res, {
       success: false,
       statusCode: httpStatus.NOT_FOUND,
-      message: "No Data Found!",
+      message: 'No Data Found!',
       data: [],
     });
   }
@@ -18,7 +18,7 @@ const createBooking = catchAsync(async (req, res) => {
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Booking created successfully",
+    message: 'Booking created successfully',
     data: result,
   });
 });
@@ -30,7 +30,7 @@ const getAllBooking = catchAsync(async (req, res) => {
     sendResponse(res, {
       success: false,
       statusCode: httpStatus.NOT_FOUND,
-      message: "No Data Found!",
+      message: 'No Data Found!',
       data: [],
     });
   }
@@ -38,7 +38,7 @@ const getAllBooking = catchAsync(async (req, res) => {
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Facilities retrieved successfully",
+    message: 'Facilities retrieved successfully',
     data: result,
   });
 });
@@ -50,7 +50,7 @@ const userGetBooking = catchAsync(async (req, res) => {
     sendResponse(res, {
       success: false,
       statusCode: httpStatus.NOT_FOUND,
-      message: "No Data Found!",
+      message: 'No Data Found!',
       data: [],
     });
   }
@@ -58,7 +58,7 @@ const userGetBooking = catchAsync(async (req, res) => {
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Bookings retrieved successfully",
+    message: 'Bookings retrieved successfully',
     data: result,
   });
 });
@@ -71,7 +71,7 @@ const deleteBooking = catchAsync(async (req, res) => {
     sendResponse(res, {
       success: false,
       statusCode: httpStatus.NOT_FOUND,
-      message: "No Data Found!",
+      message: 'No Data Found!',
       data: [],
     });
   }
@@ -79,7 +79,7 @@ const deleteBooking = catchAsync(async (req, res) => {
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Booking cancelled successfully",
+    message: 'Booking cancelled successfully',
     data: result,
   });
 });
@@ -92,7 +92,7 @@ const AvailabilityBooking = catchAsync(async (req, res) => {
     sendResponse(res, {
       success: false,
       statusCode: httpStatus.NOT_FOUND,
-      message: "No Data Found!",
+      message: 'No Data Found!',
       data: [],
     });
   }
@@ -100,7 +100,7 @@ const AvailabilityBooking = catchAsync(async (req, res) => {
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Availability checked successfully",
+    message: 'Availability checked successfully',
     data: result,
   });
 });

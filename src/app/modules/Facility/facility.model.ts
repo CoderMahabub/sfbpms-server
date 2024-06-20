@@ -1,23 +1,23 @@
-import { Schema, model } from "mongoose";
-import { FacilityModel, TFacility } from "./facility.interface";
+import { Schema, model } from 'mongoose';
+import { FacilityModel, TFacility } from './facility.interface';
 
 const facilitySchema = new Schema<TFacility, FacilityModel>(
   {
     name: {
       type: String,
-      required: [true, "Name is required"],
+      required: [true, 'Name is required'],
     },
     description: {
       type: String,
-      required: [true, "Description is required"],
+      required: [true, 'Description is required'],
     },
     pricePerHour: {
       type: Number,
-      required: [true, "Price per hour is required"],
+      required: [true, 'Price per hour is required'],
     },
     location: {
       type: String,
-      required: [true, "Location is required"],
+      required: [true, 'Location is required'],
     },
     isDeleted: {
       type: Boolean,
@@ -26,7 +26,7 @@ const facilitySchema = new Schema<TFacility, FacilityModel>(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 facilitySchema.statics.isFacilityExistsByid = async function (id: string) {
@@ -34,6 +34,6 @@ facilitySchema.statics.isFacilityExistsByid = async function (id: string) {
 };
 
 export const Facility = model<TFacility, FacilityModel>(
-  "Facility",
-  facilitySchema
+  'Facility',
+  facilitySchema,
 );

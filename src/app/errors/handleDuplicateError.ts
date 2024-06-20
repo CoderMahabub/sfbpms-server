@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TErrorSources, TGenericErrorResponse } from "../interface/error";
+import { TErrorSources, TGenericErrorResponse } from '../interface/error';
 
 const handleDuplicateError = (err: any): TGenericErrorResponse => {
   const match = err.message.match(/"([^"]*)"/);
   const extracted_msg = match && match[1];
   const errorSources: TErrorSources = [
     {
-      path: "",
+      path: '',
       message: `${extracted_msg} is already exist`,
     },
   ];
@@ -14,7 +14,7 @@ const handleDuplicateError = (err: any): TGenericErrorResponse => {
   const statusCode = 400;
   return {
     statusCode,
-    message: "Invalid ID",
+    message: 'Invalid ID',
     errorSources,
   };
 };

@@ -45,7 +45,7 @@ In this project I have used Zod validation to ensure data consistency and preven
     git clone https://github.com/CoderMahabub/sfbpms-server.git
     cd sfbpms-server
     ```
-    Live server link: 
+    Live server link: https://sfbpms-server.vercel.app/
 
 2. **Install dependencies:**
     ```bash
